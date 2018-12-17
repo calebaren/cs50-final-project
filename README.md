@@ -48,7 +48,7 @@ While some of these color choices may seem arbitrary, these are simply suggestio
 ## Developer Details
   Please visit **[That's A Mood](https://github.com/calebaren/cs50-final-project)** to get started!
 
-  Created by [Caleb Ren](https://github.com/calebaren) and [Anna Wang](https://github.annawang7.com).
+  Created by [Caleb Ren](https://github.com/calebaren) and [Anna Wang](https://github.com/annawang7).
 
 ## Study Citations
   * **[Mental Health America](https://www.mha-em.org/advocacy/12-media/132-mental-health-treatment-and-stigma-statistics.html)** 
