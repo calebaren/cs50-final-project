@@ -1,6 +1,6 @@
 # That's A Mood: A CS50 Project
 
-**[That's A Mood](https://annawang7.github.io/cs50-final-proj)** is a project to encourage an open expression of mental health on the Harvard campus. 
+**[That's A Mood](https://calebaren.github.io/cs50-final-project)** is a project to encourage an open expression of mental health on the Harvard campus. 
 
 ## Why is this important?
   Mental health is a term that addresses our social, emotional, and psychological well-being, and constantly affects how we think, feel, and act. It is an incredibly important aspect of daily life, yet too often mental health problems are ignored or stigmatized in present-day culture.
@@ -17,7 +17,7 @@
   Once they hit submit, the color selected on the wheel is sent through a series of pipelines to eventually interact with the LEDs, and add the new input to our hardware project.
 
 ## Background
-![Color Wheel](https://github.com/annawang7/cs50-final-proj/blob/gh-pages/Color_Wheel.jpg "Source: https://www.psychologytoday.com/us/blog/peaceful-parents-happy-kids/201801/easy-ways-teach-kids-about-emotions-in-daily-life?amp")
+![Color Wheel](https://github.com/calebaren/cs50-final-project/blob/gh-pages/Color_Wheel.jpg "Source: https://www.psychologytoday.com/us/blog/peaceful-parents-happy-kids/201801/easy-ways-teach-kids-about-emotions-in-daily-life?amp")
 
 Our moods are often mercurial and shaped by our surroundings, especially by color. Colors like green and blue are viewed as more calming colors, while colors like red and yellow may excite or even agitate us. Similarly, colors can often be a reflection of how we currently feel. Thus began That's A Mood: a colorful exploration to reveal how we--as a campus--are feeling.
 
