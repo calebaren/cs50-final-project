@@ -9,7 +9,7 @@ background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false 
 locale:             en_US
 url:                http://127.0.0.1:4000
-url:                https://calebaren.github.io/cs50-final-project
+url:                https://annwang7.github.io/cs50-final-proj
 
 # Jekyll
 permalink:          /:title/
