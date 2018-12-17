@@ -1,0 +1,106 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+    {% include head.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header flex" role="banner">
+        <div class="container animated fadeIn">
+            <div class="row">
+                <h3 class="title">
+                    <a class="zoombtn" href="{{ site.url }}">
+                        <p style="font-size:2rem;font-weight:300">{{ site.title }}</p>
+                    </a>
+                </h3>
+                <h3 class="title">
+                    <a href="{{ site.url }}">
+                        <p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
+                    </a>
+                </h3>
+                <hr class="hr-line">
+                <form id="mood-form">
+                    <h3 style="font-size:1rem;font-weight:300">
+                        How are you feeling today?
+                        <span id="mood" style="font-weight:700"></span>
+                    </h3>
+                    <div id="color-picker-container"></div>
+                    <div>
+                        <button type="submit" id="submit-form">Submit</button>
+                    </div>
+                </form>
+                <hr class="hr-line">
+            </div>
+        </div>
+    </header>
+    {% include scripts.html %}
+</body>
+</html>
+<script>
+    var $form = $('form#mood-form');
+
+    /* Create the color picker */
+    var size = 70 + $form.width() * 0.7;
+    var demoColorPicker = new iro.ColorPicker("#color-picker-container", {width:size, height:size, color:"#f00"});
+
+    /* Updates the moodSpan text with the correct mood and assocated color */
+    var $moodSpan = document.getElementById("mood");
+    demoColorPicker.on("color:change", function(color, changes) {
+        /* Sets the span's text color to the current rgb color */
+        $moodSpan.style.color = color.rgbString;
+        var red = color.rgb.r;
+        var green = color.rgb.g;
+        var blue = color.rgb.b;
+        var text = "Input A Mood";
+        
+        /* Algorithm to extrapolate mood from color */
+        if (red == 255) {
+            if (Math.abs(blue-green) < 125 - Math.min(blue,green)/2) {
+                text = "Mad";
+            } else if (blue > green) {
+                text = "Stressed";
+            } else {
+                text = "Joyful";
+            }
+        } else if (green == 255) {
+            if (Math.abs(blue-red) < 125 - Math.min(blue,red)/2) {
+                text = "Calm";
+            } else if (red > blue) {
+                text = "Joyful";
+            } else {
+                text = "Powerful";
+            }
+        } else if (blue == 255) {
+            if (Math.abs(green-red) < 125 - Math.min(red,green)/2) {
+                text = "Sad";
+            } else if (red > green) {
+                text = "Stressed";
+            } else {
+                text = "Powerful";
+            }
+        }
+        $moodSpan.textContent = text;
+    });
+
+    /* Makes a get request with the rgb value to the Google Apps Script whenever the form is submitted */
+    var url = 'https://script.google.com/macros/s/AKfycbyRrHKpPuL_-3z2c8Tc0tsx0cYymqCmTAS6i-5x7Upli0JMa3w/exec';
+    $('#submit-form').on('click', function(e) {
+        e.preventDefault();
+        var jqxhr = $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            data: demoColorPicker.color.rgb
+        });
+        console.log(demoColorPicker.color.rgb);
+        $form.replaceWith('<p style="font-size:1rem;font-weight:300">Thanks for sharing and contributing to an open community here at Harvard.</p> <a href="{{ site.url }}" style="color:white;font-size:1rem;font-weight:300">Return to Home</a>');
+    })
+
+</script>
